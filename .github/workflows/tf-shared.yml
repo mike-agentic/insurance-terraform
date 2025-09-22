@@ -1,0 +1,24 @@
+name: Terraform Shared Deployment
+on:
+  # push:
+  #   branches:
+  #     - master
+  #   paths:
+  #     - terraform/development/**
+  # pull_request:
+  #   paths:
+  #     - terraform/development/**
+  workflow_dispatch:
+
+jobs:
+# Shared Account Baseline
+  call-development:
+    uses: ./.github/workflows/tf-account.yml
+    with:
+      account: shared
+    secrets:
+      AWS_MANAGEMENT_ACCOUNT: ${{ secrets.AWS_MANAGEMENT_ACCOUNT }}
+    permissions:
+      id-token: write
+      issues: write
+      contents: read
