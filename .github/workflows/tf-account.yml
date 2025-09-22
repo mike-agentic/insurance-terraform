@@ -85,7 +85,7 @@ jobs:
         timeout-minutes: 30
         with:
           secret: ${{ github.TOKEN }}
-          approvers: mike09909,bob-agentic
+          approvers: mike09909
 
           minimum-approvals: 1
           issue-title: ${{ inputs.account }}
